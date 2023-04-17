@@ -1,0 +1,47 @@
+<?php
+$servername = "localhost";
+$username = "admin";
+$password = "admin";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+$sql = "DROP DATABASE woodysDB";
+if ($conn->query($sql) === TRUE) {
+  echo "Database dropped successfully";
+} else {
+  echo "Error creating woodysDB database: " . $conn->error;
+}
+$sql = "CREATE DATABASE woodysDB";
+if ($conn->query($sql) === TRUE) {
+  echo "Database created successfully";
+} else {
+  echo "Error creating woodysDB database: " . $conn->error;
+}
+
+$dbname = "woodysdb";
+
+//load schema
+$conn = new mysqli($servername, $username, $password, $dbname);
+$query = file_get_contents("initializeSchema.sql");
+if (mysqli_multi_query($conn, $query)){
+  echo "Successfully created tables";
+}
+else {
+  echo "Fail: " . $conn->error;
+}
+//load files
+$conn = new mysqli($servername, $username, $password, $dbname);
+$query = file_get_contents("loadData.sql");
+if (mysqli_multi_query($conn, $query)){
+  echo "Successfully loaded data";
+}
+else {
+  echo "Fail: " . $conn->error;
+}
+?>
