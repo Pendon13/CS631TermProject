@@ -25,12 +25,15 @@ echo "Service: ".$row["svc_type"]." | Price: ". $row["price"];
 $base_price = $base_price + $row["price"];
 echo "<br>Your base price is: $".$base_price. " Labor is not included.";
 echo "<br>Appointment date: " . $date;
+echo "<br><a href=\"index.php\">Return</a>";
 
 
 $appt_insert = "INSERT INTO `appointment` (`appt_date`, `loc_id`, `cust_id`, `vin`)
 VALUES  ($date, $loc_id, $cust_id, $vin)";
 $conn->query($appt_insert);
 $appt_id = $conn->insert_id;
+$appt_date_update = "UPDATE `appointment` SET appt_date = '$date' WHERE id = $appt_id";
+$conn->query($appt_date_update);
 
 $inv_insert = "INSERT INTO `invoice` (`amount`)
 VALUES  ($base_price)";

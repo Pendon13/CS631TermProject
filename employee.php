@@ -12,5 +12,7 @@
         <input type="text" name="ssn" id="">
         <input type="submit" value="Enter SSN">
     </form>
+    <br>
+    <a href="index.php">Go back</a>
 </body>
 </html>
