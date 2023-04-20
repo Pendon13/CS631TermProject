@@ -7,6 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <form method="POST" action="employeehome.php">
+        <label for="ssn">SSN</label>
+        <input type="text" name="ssn" id="">
+        <input type="submit" value="Enter SSN">
+    </form>
 </body>
 </html>

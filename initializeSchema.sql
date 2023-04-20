@@ -95,7 +95,7 @@ CREATE TABLE Technician (
 );
 CREATE TABLE Skill (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    skill_name VARCHAR(20) NOT NULL
+    skill_name VARCHAR(100) NOT NULL
 );
 CREATE TABLE TechnicianHasSkill (
     tech_ssn CHAR(9) NOT NULL,
@@ -106,7 +106,7 @@ CREATE TABLE TechnicianHasSkill (
 );
 CREATE TABLE ServicesOffered (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    svc_type VARCHAR(25) NOT NULL,
+    svc_type VARCHAR(50) NOT NULL,
     vehicle_type VARCHAR(25) NOT NULL,
     skill_id INT(6) UNSIGNED NOT NULL,
     price FLOAT(7) NOT NULL,
@@ -152,6 +152,8 @@ CREATE TABLE InvoiceDetails (
     loc_id INT(6) UNSIGNED NOT NULL,
     invoice_id INT(6) UNSIGNED NOT NULL,
     price FLOAT(7) NOT NULL,
+    status VARCHAR(10) DEFAULT 'Waiting',
+    status VARCHAR(10),
     PRIMARY KEY (appt_id, loc_id, invoice_id),
     CONSTRAINT appointment_in_detail FOREIGN KEY (appt_id) REFERENCES Appointment(id),
     CONSTRAINT location_in_detail FOREIGN KEY (loc_id) REFERENCES BusinessLocation(id),

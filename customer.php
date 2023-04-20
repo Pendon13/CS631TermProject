@@ -29,12 +29,12 @@
         <p><input type="submit" value="Register"></p>
     </form>
     <h1>Returning Customer</h1>
-    <form method="POST" action="registervehicle.php">
+    <form method="POST" action="customerhome.php">
         <p><label for="id">Id</label>
         <input type="number" name="id"></p>
         <p><label for="email">Email Address</label>
         <input type="email" name="email"></p>
-        <input type="button" value="Vehicle Registration">
+        <input type="submit" value="Go to Customer Page">
     </form>
 </body>
 </html>

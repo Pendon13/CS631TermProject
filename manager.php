@@ -1,5 +1,10 @@
 <?php
-
+$servername = "localhost";
+$username = "admin";
+$password = "admin";
+$dbname = "woodysdb";
+$conn = new mysqli($servername, $username, $password, $dbname);
+$requesteddate = $_POST["date"];
 ?>
 <!DOCTYPE html>
 <html lang="en">

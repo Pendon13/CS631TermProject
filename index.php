@@ -16,7 +16,8 @@ function display_empty_form() {
     <title>Home Page</title>
 </head>
 <body>
-    <a href="customerpage.php">Customer Page</a>
-    <a href="employeepage.php">Employee Page</a>
+    <a href="customer.php">Customer Page</a>
+    <br><br>
+    <a href="employee.php">Employee Page</a>
 </body>
 </html>
