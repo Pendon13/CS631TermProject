@@ -153,7 +153,7 @@ CREATE TABLE InvoiceDetails (
     invoice_id INT(6) UNSIGNED NOT NULL,
     price FLOAT(7) NOT NULL,
     status VARCHAR(20) DEFAULT 'Waiting',
-    PRIMARY KEY (appt_id, loc_id, invoice_id),
+    PRIMARY KEY (appt_id, service_id, invoice_id),
     CONSTRAINT appointment_in_detail FOREIGN KEY (appt_id) REFERENCES Appointment(id),
     CONSTRAINT service_in_detail FOREIGN KEY (service_id) REFERENCES ServicesOffered(id),
     CONSTRAINT invoice_in_detail FOREIGN KEY (invoice_id) REFERENCES Invoice(id)

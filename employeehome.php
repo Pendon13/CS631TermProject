@@ -45,7 +45,7 @@ function returnFormSkill($conn) {
         // output data of each row
         while($row = $skills->fetch_assoc()) {  
             echo "<label for=\"".$row["skill_name"]."\">".$row["skill_name"]."</label>";
-            echo "<input type=\"radio\" name=\"service\" value=\"".$row["id"]."\"><br> ";
+            echo "<input type=\"radio\" name=\"service\" value=\"".$row["skill_name"]."\"><br> ";
         }
     } else {
         echo "0 results";
@@ -66,7 +66,7 @@ if($veriresult->num_rows === 1) {
         if($managerresult->num_rows === 1) {
             $row = $managerresult->fetch_assoc();
             echo "Welcome ".$row["fname"]. " ".$row["lname"];
-            echo "<br>You are a manager. You're salary is: ".$row["salary"];
+            echo "<br>You are a manager. You're salary is: $".$row["salary"];
             echo "<br>You work at: ". getLocationName($conn, $row["loc_id"]);
             echo "
             <form method=\"POST\" action=\"manager.php\">

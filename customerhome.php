@@ -26,7 +26,7 @@ if($veriresult->num_rows === 1) {
             <h2>View All Appointments and Invoices</h2>
             <form method=\"POST\" action=\"customerstatus.php\">
                 <label for=\"cust_id\">ID</label>
-                <input type=\"text\" name=\"cust_id\" value=\"<?php echo $cust_id ?>\"readonly><br>
+                <input type=\"text\" name=\"cust_id\" value=\"$cust_id\"readonly><br>
                 <input type=\"submit\" value=\"View\">
             </form>
             
@@ -34,7 +34,7 @@ if($veriresult->num_rows === 1) {
             <h2>Would you like to submit an order?</h2>
             <form method=\"POST\" action=\"submitorder.php\">
                 <label for=\"cust_id\">ID</label>
-                <input type=\"text\" name=\"cust_id\" value=\"<?php echo $cust_id ?>\"readonly><br>
+                <input type=\"text\" name=\"cust_id\" value=\"$cust_id\"readonly><br>
                 <label for=\"date\">Date</label>
                 <input type=\"date\" name=\"date\" id=\"\"><br>
                 <label for=\"vin\">VIN</label>
@@ -42,11 +42,11 @@ if($veriresult->num_rows === 1) {
                 <label for=\"vehicle_type\">Type</label>
                 <input type=\"radio\" name=\"vehicle_type\" value=\"Car\">Car
                 <input type=\"radio\" name=\"vehicle_type\" value=\"Van\">Van
-                <input type=\"radio\" name=\"vehicle_type\" value=\"Truck\">Truck<br>
-                <?php 
-                returnFormLocation($conn);
-                returnFormSkills($conn);
-                ?>
+                <input type=\"radio\" name=\"vehicle_type\" value=\"Truck\">Truck<br>";
+                
+                echo returnFormLocation($conn);
+                echo returnFormSkills($conn);
+                echo "
                 <input type=\"submit\" value=\"Request Order\">
             </form>
             
@@ -54,7 +54,7 @@ if($veriresult->num_rows === 1) {
             <h1>Register a Vehicle</h1>
             <form method=\"POST\" action=\"registeredvehicle.php\">
                 <label for=\"cust_id\">ID</label>
-                <input type=\"text\" name=\"cust_id\" value=\"<?php echo $cust_id ?>\"readonly><br>
+                <input type=\"text\" name=\"cust_id\" value=\"$cust_id\"readonly><br>
                 <label for=\"vin\">VIN</label>
                 <input type=\"text\" name=\"vin\"><br>
                 <label for=\"model\">Model</label>

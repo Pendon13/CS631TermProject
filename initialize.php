@@ -43,7 +43,7 @@ echo "<br>";
 $conn = new mysqli($servername, $username, $password, $dbname);
 $query = file_get_contents("loadData.sql");
 if (mysqli_multi_query($conn, $query)){
-  echo "Successfully loaded data";
+  echo "Successfully loaded data 1";
 }
 else {
   echo "Fail: " . $conn->error;

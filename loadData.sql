@@ -54,9 +54,6 @@ INSERT INTO `technicianhasskill` (`tech_ssn`, `skill_id`)
 INSERT INTO `part` (`part_name`, `price`)
     VALUES  ('Engine', '300'),
             ('Oil', '5');
-/* Inventory */
-INSERT INTO `inventory` (`quantity`, `part_id`, `loc_id`)
-    VALUES  ('2', '1', '1');
 /* Services Offered */
 INSERT INTO `servicesoffered` (`svc_type`, `vehicle_type`, `skill_id`, `price`)
     VALUES  ('Oil Change', 'Car', '1', '50'),
@@ -83,6 +80,9 @@ INSERT INTO `servicesoffered` (`svc_type`, `vehicle_type`, `skill_id`, `price`)
 /* Part Used In Service */
 INSERT INTO `partusedinservice` (`part_id`, `service_id`)
     VALUES  ('2', '1');
+/* Inventory */
+INSERT INTO `inventory` (`quantity`, `part_id`, `loc_id`)
+    VALUES  ('2', '1', '1');
 /* Appointment */
 INSERT INTO `appointment` (`appt_date`, `loc_id`, `cust_id`, `vin`)
     VALUES  ('2023-04-27', '1', '1', '111111');

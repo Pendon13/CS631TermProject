@@ -20,7 +20,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 $cust_id = $_POST["cust_id"];
 echo "<a href=\"customer.php\">Customer Page</a>";
 
-$query = "SELECT * FROM `appointment`, `invoicedetails`, `businesslocation` WHERE invoicedetails.appt_id = appointment.id AND invoicedetails.loc_id = businesslocation.id AND `cust_id` = \"$cust_id\"";
+$query = "SELECT * FROM `appointment`, `invoicedetails`, `businesslocation`, `servicesoffered` WHERE invoicedetails.service_id = servicesoffered.id AND invoicedetails.appt_id = appointment.id AND appointment.loc_id = businesslocation.id AND `cust_id` = \"$cust_id\"";
 $appts = $conn->query($query);
 echo "<table>
         <tr>
@@ -28,6 +28,7 @@ echo "<table>
         <th>Date</th>
         <th>Location</th>
         <th>VIN</th>
+        <th>Service</th>
         <th>Status</th>
         <th>Price</th>
         </tr>";
@@ -37,6 +38,7 @@ echo "<tr>
         <td>".$row["appt_date"]."</td>
         <td>".$row["loc_address"]."</td>
         <td>".$row["vin"]."</td>
+        <td>".$row["svc_type"]."</td>
         <td>".$row["status"]."</td>
         <td>".$row["price"]."</td>
 </tr>";

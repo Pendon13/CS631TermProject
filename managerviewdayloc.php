@@ -17,7 +17,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 $location = $_POST["location"];
 $date = $_POST["date"];
 
-$appt_query = "SELECT * FROM `appointment`, `invoicedetails`, `businesslocation` WHERE invoicedetails.appt_id = appointment.id AND invoicedetails.loc_id = businesslocation.id AND `loc_address` = \"$location\" AND `appt_date` = '$date'";
+$appt_query = "SELECT * FROM `appointment`, `invoicedetails`, `businesslocation`, `servicesoffered` WHERE invoicedetails.service_id = servicesoffered.id AND invoicedetails.appt_id = appointment.id AND appointment.loc_id = businesslocation.id AND `loc_address` = \"$location\" AND `appt_date` = '$date'";
 $appts = $conn->query($appt_query);
 echo "<table>
         <tr>
@@ -25,6 +25,7 @@ echo "<table>
         <th>Date</th>
         <th>Location</th>
         <th>VIN</th>
+        <th>Service</th>
         <th>Status</th>
         <th>Current Price</th>
         </tr>";
@@ -34,11 +35,26 @@ echo "<tr>
         <td>".$row["appt_date"]."</td>
         <td>".$row["loc_address"]."</td>
         <td>".$row["vin"]."</td>
+        <td>".$row["svc_type"]."</td>
         <td>".$row["status"]."</td>
         <td>".$row["price"]."</td>
 </tr>";
 }
 echo "</table><br>";
+echo "<h1>Change Status</h1>";
+echo "
+<form method=\"POST\" action=\"statuschanged.php\">
+    <label for=\"status\">Status</label>
+    <input type=\"radio\" name=\"status\" value=\"Waiting for parts\">Waiting for parts
+    <input type=\"radio\" name=\"status\" value=\"In Progress\">In Progress
+    <input type=\"radio\" name=\"status\" value=\"Completed\">Completed<br>
+    <label for=\"id\">Invoice Number</label>
+    <input type=\"number\" name=\"id\"><br>
+    <label for=\"price\">New Price With Added Parts & Labor</label>
+    <input type=\"number\" name=\"price\"><br>
+    <input type=\"submit\" value=\"Submit Changes\">
+</form>
+";
 echo "<a href=\"employee.php\">Go back</a>";
 
 

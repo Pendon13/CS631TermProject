@@ -15,7 +15,7 @@ $password = "admin";
 $dbname = "woodysdb";
 $conn = new mysqli($servername, $username, $password, $dbname);
 $location = $_POST["location"];
-$appt_query = "SELECT * FROM `appointment`, `invoicedetails`, `businesslocation` WHERE invoicedetails.appt_id = appointment.id AND invoicedetails.loc_id = businesslocation.id AND `loc_address` = \"$location\"";
+$appt_query = "SELECT * FROM `appointment`, `invoicedetails`, `businesslocation` WHERE invoicedetails.appt_id = appointment.id AND appointment.loc_id = businesslocation.id AND `loc_address` = \"$location\"";
 $appts = $conn->query($appt_query);
 echo "<table>
         <tr>

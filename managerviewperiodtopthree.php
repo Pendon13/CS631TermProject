@@ -4,11 +4,10 @@ $username = "admin";
 $password = "admin";
 $dbname = "woodysdb";
 $conn = new mysqli($servername, $username, $password, $dbname);
-$locid = $_POST["location"];
 $startdate = $_POST["startdate"];
 $enddate = $_POST["enddate"];
 
-$query = "SELECT `loc_address`, SUM(`price`) FROM `appointment`, `invoicedetails`, `businesslocation` WHERE invoicedetails.appt_id = appointment.id AND invoicedetails.loc_id = businesslocation.id AND `status` = 'Paid' AND `appt_date` >= '$startdate' AND `appt_date` <= '$enddate' GROUP BY `loc_address`  ORDER BY SUM(`price`)";
+$query = "SELECT `loc_address`, SUM(`price`) FROM `appointment`, `invoicedetails`, `businesslocation` WHERE invoicedetails.appt_id = appointment.id AND appointment.loc_id = businesslocation.id AND `status` = 'Paid' AND `appt_date` >= '$startdate' AND `appt_date` <= '$enddate' GROUP BY `loc_address`  ORDER BY SUM(`price`) DESC";
 $locations = $conn->query($query);
 echo "Showing revenue between ".$startdate. " and ".$enddate;
 echo "<table>
