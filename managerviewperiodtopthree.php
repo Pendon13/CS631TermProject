@@ -31,5 +31,3 @@ echo "<a href=\"employee.php\">Go back</a>";
 
 </body>
 </html>
-
-?>
