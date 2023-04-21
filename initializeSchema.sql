@@ -149,12 +149,12 @@ CREATE TABLE Invoice (
 );
 CREATE TABLE InvoiceDetails (
     appt_id INT(6) UNSIGNED NOT NULL,
-    loc_id INT(6) UNSIGNED NOT NULL,
+    service_id INT(6) UNSIGNED NOT NULL,
     invoice_id INT(6) UNSIGNED NOT NULL,
     price FLOAT(7) NOT NULL,
     status VARCHAR(20) DEFAULT 'Waiting',
     PRIMARY KEY (appt_id, loc_id, invoice_id),
     CONSTRAINT appointment_in_detail FOREIGN KEY (appt_id) REFERENCES Appointment(id),
-    CONSTRAINT location_in_detail FOREIGN KEY (loc_id) REFERENCES BusinessLocation(id),
+    CONSTRAINT service_in_detail FOREIGN KEY (service_id) REFERENCES ServicesOffered(id),
     CONSTRAINT invoice_in_detail FOREIGN KEY (invoice_id) REFERENCES Invoice(id)
 );

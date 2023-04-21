@@ -23,6 +23,36 @@ function getLocationName($conn, $locationkey) {
     }
 }
 
+function returnFormLocation($conn) {
+    $query = "SELECT * FROM `businesslocation`";
+    $skills = $conn->query($query);
+    echo "<br><strong>Location</strong><br>";
+    if ($skills->num_rows > 0) {
+        // output data of each row
+        while($row = $skills->fetch_assoc()) {
+            echo "<label for=\"".$row["loc_address"]."\">".$row["loc_address"]."</label>";
+            echo "<input type=\"radio\" name=\"location\" value=\"".$row["loc_address"]."\"><br> ";
+        }
+    } else {
+        echo "0 results";
+    }
+}
+function returnFormSkill($conn) {
+    $query = "SELECT * FROM `skill`";
+    $skills = $conn->query($query);
+    echo "<br><strong>Service Name</strong><br>";
+    if ($skills->num_rows > 0) {
+        // output data of each row
+        while($row = $skills->fetch_assoc()) {  
+            echo "<label for=\"".$row["skill_name"]."\">".$row["skill_name"]."</label>";
+            echo "<input type=\"radio\" name=\"service\" value=\"".$row["id"]."\"><br> ";
+        }
+    } else {
+        echo "0 results";
+    }
+}
+
+
 if($veriresult->num_rows === 1) {
     $row = $veriresult->fetch_assoc();
     if($emp_ssn === $row["ssn"]) {
@@ -52,6 +82,40 @@ if($veriresult->num_rows === 1) {
                 <input type=\"submit\" value=\"View All\">
             </form>
             ";
+            echo "<h2>View a day and location</h2>
+            <form method=\"POST\" action=\"managerviewdayloc.php\">";
+            echo returnFormLocation($conn);
+            echo "
+            <label for=\"date\">Date</label>
+            <input type=\"date\" name=\"date\">
+            <input type=\"submit\" value=\"View\">
+            </form>";
+            //Time service location revenue
+            echo "<h2>View a period of time, service, and location</h2>
+            <form method=\"POST\" action=\"managerviewdaylocsrv.php\">";
+            echo returnFormLocation($conn);
+            echo "
+            <label for=\"startdate\">Start Date</label>
+            <input type=\"date\" name=\"startdate\">
+            <label for=\"startdate\">End Date</label>
+            <input type=\"date\" name=\"enddate\">";
+            echo returnFormSkill($conn);
+            echo "
+            <label for=\"vehicle_type\"><strong>Vehicle Type</strong></label><br>
+            <input type=\"radio\" name=\"vehicle_type\" value=\"Car\">Car
+            <input type=\"radio\" name=\"vehicle_type\" value=\"Van\">Van
+            <input type=\"radio\" name=\"vehicle_type\" value=\"Truck\">Truck<br>            
+            <input type=\"submit\" value=\"View\">
+            </form>";
+            //Begin end revenue max
+            echo "<h2>View top 3 revenue locations in a given time period</h2>
+            <form method=\"POST\" action=\"managerviewperiodtopthree.php\">
+            <label for=\"startdate\">Start Date</label>
+            <input type=\"date\" name=\"startdate\"><br>
+            <label for=\"startdate\">End Date</label>
+            <input type=\"date\" name=\"enddate\">    <br>   
+            <input type=\"submit\" value=\"View\">
+            </form>";
             $queryparts = "SELECT * FROM `part`, `inventory`, `businesslocation` WHERE businesslocation.id = inventory.loc_id AND inventory.part_id = part.id";
             $partsresult = $conn->query($queryparts);
             echo "<h3>Part List</h3><table>

@@ -90,5 +90,5 @@ INSERT INTO `appointment` (`appt_date`, `loc_id`, `cust_id`, `vin`)
 INSERT INTO `invoice` (`amount`, `date_paid`)
     VALUES  ('200', '2023-04-27');
 /* Invoice Details */
-INSERT INTO `invoicedetails` (`appt_id`, `loc_id`, `invoice_id`, `price`)
-    VALUES  ('1', '1', '1', '200');
+INSERT INTO `invoicedetails` (`appt_id`, `service_id`, `invoice_id`, `price`, `status`)
+    VALUES  ('1', '1', '1', '200', 'Paid');
