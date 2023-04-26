@@ -18,7 +18,7 @@ echo "<table>
 while($row = $locations->fetch_assoc()) {
 echo "<tr>
         <td>".$row["loc_address"]."</td>
-        <td>".$row["SUM(`price`)"]."</td>
+        <td>$".$row["SUM(`price`)"]."</td>
 </tr>";
 }
 echo "</table><br>";

@@ -12,6 +12,10 @@ $query = "SELECT `vin`, `model`, `make_year`, `color`, `vehicle_type`, `manufact
 
 $veriresult = $conn->query($veriquery);
 $vehicles = $conn->query($query);
+
+$servicequery = "SELECT * FROM `servicesoffered`";
+$services = $conn->query($servicequery);
+
 if($veriresult->num_rows === 1) {
     $row = $veriresult->fetch_assoc();
     if($cust_id === $row["id"] && $cust_email === $row["email"]) {
@@ -71,13 +75,27 @@ if($veriresult->num_rows === 1) {
                 <input type=\"radio\" name=\"vehicle_type\" value=\"Van\">Van
                 <input type=\"radio\" name=\"vehicle_type\" value=\"Truck\">Truck<br>
                 <input type=\"submit\" value=\"Register Vehicle\">
-            </form>
-            <a href=\"index.php\">Return</a>";
+            </form>";
 
 
-
-
-
+            echo "<br><table>
+            <tr>
+            <th>Service Name</th>
+            <th>Vehicle Type</th>
+            <th>Price (Not including labor or Parts)</th>
+            </tr>";
+            
+            if ($services->num_rows > 0) {
+              while($row = $services->fetch_assoc()) {
+                echo "<tr>
+                <td>".$row["svc_type"]."</td>
+                <td>".$row["vehicle_type"]."</td>
+                <td>$".$row["price"]."</td>
+                </tr>";
+              }
+            }
+            echo "</table><br>";
+            echo "<a href=\"index.php\">Return</a>";
           } else {
             echo "0 results<br><a href=\"index.php\">Return</a>";
           }

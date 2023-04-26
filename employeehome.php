@@ -11,6 +11,8 @@ $managerquery = "SELECT * FROM `employee`, `manager` WHERE `ssn` = $emp_ssn AND 
 $managerresult = $conn->query($managerquery);
 $technicianquery = "SELECT * FROM `employee`, `technician` WHERE `ssn` = $emp_ssn AND technician.emp_ssn = employee.ssn";
 $technicianresult = $conn->query($technicianquery);
+$skillsquery = "SELECT DISTINCT `skill_name` FROM `technicianhasskill`, `skill` WHERE `tech_ssn` = '$emp_ssn'";
+$skillsresult = $conn->query($skillsquery);
 
 
 function getLocationName($conn, $locationkey) {
@@ -61,6 +63,12 @@ if($veriresult->num_rows === 1) {
             echo "Welcome ".$row["fname"]. " ".$row["lname"];
             echo "<br>You are a technician. You're hourly rate is: $".$row["hourly_rate"];
             echo "<br>You work at: ". getLocationName($conn, $row["loc_id"]);
+            echo "<br>Your skills are: ";
+            if($skillsresult->num_rows > 1) {
+                while($skillrow = $skillsresult->fetch_assoc()) {
+                    echo "<br>".$skillrow["skill_name"];
+                }
+            }
             echo "<br><a href=\"index.php\">Return</a>";
         }
         if($managerresult->num_rows === 1) {
@@ -91,7 +99,7 @@ if($veriresult->num_rows === 1) {
             <input type=\"submit\" value=\"View\">
             </form>";
             //Time service location revenue
-            echo "<h2>View a period of time, service, and location</h2>
+            echo "<h2>View Revenue for a period of time, service, and location</h2>
             <form method=\"POST\" action=\"managerviewdaylocsrv.php\">";
             echo returnFormLocation($conn);
             echo "

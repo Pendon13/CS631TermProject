@@ -10,6 +10,7 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="index.php">Home</a>
     <h1>New Customer</h1>
     <form method="POST" action="registered.php">
         <p><label for="fname">First Name</label>

@@ -15,16 +15,18 @@ $password = "admin";
 $dbname = "woodysdb";
 $conn = new mysqli($servername, $username, $password, $dbname);
 $location = $_POST["location"];
-$appt_query = "SELECT * FROM `appointment`, `invoicedetails`, `businesslocation` WHERE invoicedetails.appt_id = appointment.id AND appointment.loc_id = businesslocation.id AND `loc_address` = \"$location\"";
-$appts = $conn->query($appt_query);
+$query = "SELECT `invoice_id`, `appt_date`, invoicedetails.price, `loc_address`, `vin`, `vehicle_type`, `svc_type`, `status` FROM `appointment`, `invoicedetails`, `businesslocation`, `servicesoffered` WHERE invoicedetails.service_id = servicesoffered.id AND invoicedetails.appt_id = appointment.id AND appointment.loc_id = businesslocation.id AND `loc_address` = \"$location\" ORDER BY `invoice_id`";
+$appts = $conn->query($query);
 echo "<table>
         <tr>
         <th>Invoice Number</th>
         <th>Date</th>
         <th>Location</th>
         <th>VIN</th>
+        <th>Vehicle Type</th>
+        <th>Service</th>
         <th>Status</th>
-        <th>Current Price</th>
+        <th>Price</th>
         </tr>";
 while($row = $appts->fetch_assoc()) {
 echo "<tr>
@@ -32,12 +34,14 @@ echo "<tr>
         <td>".$row["appt_date"]."</td>
         <td>".$row["loc_address"]."</td>
         <td>".$row["vin"]."</td>
+        <td>".$row["vehicle_type"]."</td>
+        <td>".$row["svc_type"]."</td>
         <td>".$row["status"]."</td>
-        <td>".$row["price"]."</td>
+        <td>$".$row["price"]."</td>
 </tr>";
 }
-echo "</table><br>";
-echo "<h1>Change Status</h1>";
+echo "</table>";
+echo "<br><h1>Change Status</h1>";
 echo "
 <form method=\"POST\" action=\"statuschanged.php\">
     <label for=\"status\">Status</label>

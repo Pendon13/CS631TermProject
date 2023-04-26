@@ -7,12 +7,13 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="index.php">Home</a>
+    <h1>Sign in</h1>
     <form method="POST" action="employeehome.php">
         <label for="ssn">SSN</label>
         <input type="text" name="ssn" id="">
         <input type="submit" value="Enter SSN">
     </form>
     <br>
-    <a href="index.php">Go back</a>
 </body>
 </html>

@@ -4,15 +4,43 @@ INSERT INTO `customer` (`fname`, `minit`, `lname`, `haddress`, `phone`, `creditc
             ('Jane', NULL, 'Doe', '51 Franklin Rd, East Brunswick, NJ', '2015558162', '2345234523452345', 'janedow@example.com'),
             ('Mark', 'S', 'Hale', '321 Moat Dr, Paramus, NJ', '2015558261', '3456345634563456', 'markhale@example.com'),
             ('Sam', 'B', 'Roberts', '61 Englewood St, Trenton, NJ', '2015557162', '4567456745674567', 'samroberts@example.com'),
-            ('Jay', NULL, 'Dale', '12 Broad St, Newark, NJ', '2015557281', '5678567856785678', 'jaydale@example.com');
+            ('Jay', NULL, 'Dale', '12 Broad St, Newark, NJ', '2015557281', '5678567856785678', 'jaydale@example.com'),
+            ('Mario', 'A', 'Fleming', '61 Morleys Green, Hoboken, NJ', '2015557150', '1111111111111111', 'mariofleming@example.com'),
+            ('Jenny', 'B', 'Hardy', '61 Meadowsweet Town, Hoboken, NJ', '2015557151', '2222222222222222', 'jennyhardy@example.com'),
+            ('Naomi', 'C', 'Norman', '61 Mallory Garden, Paramus, NJ', '2015557152', '3333333333333333', 'naominorman@example.com'),
+            ('Herman', 'D', 'Bradshaw', '61 Mackenzie Common, Paramus, NJ', '2015557153', '4444444444444444', 'hermanbradshaw@example.com'),
+            ('Willie', 'E', 'Winn', '61 Mortonhall Park Green, East Brunswick, NJ', '2015557154', '5555555555555555', 'williewinn@example.com'),
+            ('Margaret', 'F', 'Choi', '61 Manor Close, East Brunswick, NJ', '2015557155', '6666666666666666', 'margaretchoi@example.com'),
+            ('Edmund', 'G', 'Whalen', '61 The Croft, Trenton, NJ', '2015557156', '7777777777777777', 'edmundwhalen@example.com'),
+            ('Mike', 'H', 'Bryant', '61 Primrose St, East Brunswick, NJ', '2015557157', '8888888888888888', 'mikebryant@example.com'),
+            ('Jonathan', 'I', 'Rangel', '61 Jubilie Rd, Trenton, NJ', '2015557158', '9999999999999999', 'jonathanrangel@example.com'),
+            ('Connie', 'J', 'Owen', '61 Willow St, Hoboken, NJ', '2015557159', '1212121212121212', 'connieowen@example.com'),
+            ('Hal', 'K', 'Murry', '61 Swift St, Newark, NJ', '2015557160', '2323232323232323', 'halmurry@example.com'),
+            ('Deb', 'L', 'Schneider', '61 Byron Ave, Hoboken, NJ', '2015557161', '3434343434343434', 'debschneider@example.com'),
+            ('Keith', 'M', 'Ware', '61 Abe St, Newark, NJ', '2015557163', '4545454545454545', 'keithware@example.com');
 /* Vehicle */
 INSERT INTO `vehicle` (`vin`, `cust_id`, `model`, `make_year`, `color`, `vehicle_type`, `manufacturer`)
     VALUES  ('111111', '1', 'Camry', '2010', 'Blue', 'Car', 'Toyota'),
-            ('121111', '1', 'Volt', '2022', 'Blue', 'Car', 'Chevrolet'),
             ('211111', '2', 'CRV', '2020', 'Black', 'Van', 'Honda'),
             ('311111', '3', 'Civic', '2010', 'Blue', 'Car', 'Honda'),
             ('411111', '4', 'Y', '2020', 'Blue', 'Car', 'Tesla'),
-            ('511111', '5', 'Mustang', '2010', 'Blue', 'Truck', 'Ford');
+            ('511111', '5', 'Discovery', '2012', 'Grey', 'Truck', 'Land Rover'),
+            ('611111', '6', 'Hatchback', '2018', 'Grey', 'Car', 'MINI'),
+            ('711111', '7', 'Q3', '2022', 'Blue', 'Car', 'Audi'),
+            ('811111', '8', 'E-Pace', '2016', 'Black', 'Van', 'Jaguar'),
+            ('911111', '9', 'Ibiza', '2018', 'Red', 'Car', 'Seat'),
+            ('101111', '10', 'Prius', '2017', 'Red', 'Car', 'Toyota'),
+            ('110111', '11', 'Swift', '2009', 'Yellow', 'Van', 'Suzuki'),
+            ('120111', '12', 'Durango', '2013', 'Red', 'Van', 'Dodge'),
+            ('130111', '13', 'Enclave', '2014', 'Grey', 'Van', 'Buick'),
+            ('140111', '14', 'Acadia', '2016', 'Red', 'Truck', 'GMC'),
+            ('150111', '15', 'Sierra', '2020', 'Black', 'Truck', 'GMC'),
+            ('160111', '16', 'Giula', '2022', 'Maroon', 'Car', 'Alfa Romeo'),
+            ('170111', '17', 'X5', '2022', 'Black', 'Truck', 'BMW'),
+            ('180111', '18', 'Passat', '2018', 'Grey', 'Car', 'Volkswagen'),
+            ('182111', '18', 'TLX', '2022', 'Grey', 'Car', 'TLX'),
+            ('172111', '17', 'Focus', '2022', 'White', 'Car', 'Ford'),
+            ('121111', '1', 'Volt', '2022', 'Blue', 'Car', 'Chevrolet');
 /* Location */
 INSERT INTO `businesslocation` (`loc_address`) 
     VALUES  ('Newark, NJ'), 
@@ -22,16 +50,60 @@ INSERT INTO `businesslocation` (`loc_address`)
             ('East Brunswick, NJ');
 /* Employee */
 INSERT INTO `employee` (`ssn`, `loc_id`, `fname`, `minit`, `lname`, `haddress`, `hire_date`)
-    VALUES  ('123456789', '1', 'Michael', 'X', 'Hal', '123 Newark St, Newark, NJ', '2023-04-10'),
-            ('223456789', '1', 'Michelle', 'X', 'Dal', '122 Newark St, Newark, NJ', '2023-03-10'),
-            ('323456789', '2', 'Dale', '', 'Mol', '123 Newark St, Newark, NJ', '2023-04-10'),
-            ('423456789', '2', 'Dave', '', 'Lao', '122 Newark St, Newark, NJ', '2023-03-10');
+    VALUES  ('113456789', '1', 'Michael', 'X', 'Hal', '123 S 9th St, Newark, NJ', '2023-04-10'),
+            ('213456789', '1', 'Michelle', 'S', 'Dal', '114 Prince St, Newark, NJ', '2023-03-10'),
+            ('313456789', '1', 'Fernando', '', 'Li', '58 Branch Ct, Newark, NJ', '2023-04-10'),
+            ('413456789', '1', 'Manuel', '', 'Kreuger', '110 Newark St, Newark, NJ', '2023-03-10'),
+            ('513456789', '1', 'Armando', 'K', 'North', '85 Avon Ave, Newark, NJ', '2023-04-10'),
+            ('123456789', '2', 'Adrian', 'L', 'Chandler', '158 Franklin St, Trenton, NJ', '2023-03-10'),
+            ('223456789', '2', 'Tommy', '', 'Christian', '115 Melrose Ave, Trenton, NJ', '2023-04-10'),
+            ('323456789', '2', 'Traci', '', 'Baldwin', '48 Donald Dr, Trenton, NJ', '2023-03-10'),
+            ('423456789', '2', 'Angelica', 'S', 'Jordan', '105 Van Camp Alley, Trenton, NJ', '2023-04-10'),
+            ('523456789', '2', 'Thomas', 'A', 'Darling', '219 Quincy Ave, Trenton, NJ', '2023-03-10'),
+            ('133456789', '3', 'Jaime', '', 'Ward', '151 Washington St, Hoboken, NJ', '2023-04-10'),
+            ('233456789', '3', 'Todd', '', 'Gregory', '791 Washington St, Hoboken, NJ', '2023-03-10'),
+            ('333456789', '3', 'Ramiro', '', 'Frazier', '80 Willow Ave, Hoboken, NJ', '2023-04-10'),
+            ('433456789', '3', 'Wendell', '', 'Shepard', '467 Clinton St, Hoboken, NJ', '2023-03-10'),
+            ('533456789', '3', 'Ross', '', 'Jenkins', '77 Madison St, Hoboken, NJ', '2023-04-10'),
+            ('143456789', '4', 'Antoinette', '', 'Holt', '16 Midland Ave, Paramus, NJ', '2023-03-10'),
+            ('243456789', '4', 'Everette', 'E', 'Peters', '203 Kendrick St, Paramus, NJ', '2023-04-10'),
+            ('343456789', '4', 'Taylor', 'O', 'Connel', '98 Paramus Rd, Paramus, NJ', '2023-03-10'),
+            ('443456789', '4', 'Jeffrey', '', 'Hawkins', '162 Arundel Rd, Paramus, NJ', '2023-04-10'),
+            ('543456789', '4', 'Pablo', '', 'Sparks', '212 Ring Rd, Paramus, NJ', '2023-03-10'),
+            ('153456789', '5', 'Vera', 'V', 'Hogan', '30 Brookhill Rd, East Brunswick, NJ', '2023-03-10'),
+            ('253456789', '5', 'Raymond', 'P', 'Padilla', '293 Timber Rd, East Brunswick, NJ', '2023-04-10'),
+            ('353456789', '5', 'Lourdes', '', 'Griffin', '100 Hilltop Blvd, East Brunswick, NJ', '2023-03-10'),
+            ('453456789', '5', 'Alfred', '', 'Wilkins', '281 Claremont Ave, East Brunswick, NJ', '2023-04-10'),
+            ('553456789', '5', 'Carmen', '', 'Gamble', '300 Woodlot Rd, East Brunswick, NJ', '2023-03-10');
 /* Manager */
 INSERT INTO `manager` (`emp_ssn`, `salary`)
-    VALUES  ('123456789', '50000');
+    VALUES  ('113456789', '70000'),
+            ('123456789', '60000'),
+            ('133456789', '80000'),
+            ('143456789', '55000'),
+            ('153456789', '84000');
 /* Technician*/
 INSERT INTO `technician` (`emp_ssn`, `hourly_rate`)
-    VALUES  ('223456789', '14.50');
+    VALUES  ('213456789', '16.50'),
+            ('313456789', '15.50'),
+            ('413456789', '14.50'),
+            ('513456789', '13.50'),
+            ('223456789', '15.50'),
+            ('323456789', '16.50'),
+            ('423456789', '15.50'),
+            ('523456789', '17.50'),
+            ('233456789', '15.50'),
+            ('333456789', '14.50'),
+            ('433456789', '13.50'),
+            ('533456789', '17.50'),
+            ('243456789', '18.50'),
+            ('343456789', '15.50'),
+            ('443456789', '14.50'),
+            ('543456789', '13.50'),
+            ('253456789', '19.50'),
+            ('353456789', '15.50'),
+            ('453456789', '16.50'),
+            ('553456789', '18.50');
 /* Skill */
 INSERT INTO `skill` (`skill_name`)
     VALUES  ('Oil change'), 
@@ -49,11 +121,40 @@ INSERT INTO `technicianhasskill` (`tech_ssn`, `skill_id`)
             ('223456789', '4'),
             ('223456789', '5'),
             ('223456789', '6'),
-            ('223456789', '7');
+            ('223456789', '7'),
+            ('213456789', '1'),
+            ('213456789', '2'),
+            ('313456789', '2'),
+            ('413456789', '3'),
+            ('313456789', '3'),
+            ('413456789', '4'),
+            ('513456789', '4'),
+            ('323456789', '5'),
+            ('323456789', '6'),
+            ('423456789', '7'),
+            ('523456789', '4'),
+            ('233456789', '2'),
+            ('233456789', '4'),
+            ('333456789', '6'),
+            ('233456789', '6'),
+            ('233456789', '5'),
+            ('333456789', '7'),
+            ('433456789', '3'),
+            ('533456789', '2'),
+            ('243456789', '1'),
+            ('343456789', '5'),
+            ('443456789', '2'),
+            ('543456789', '6'),
+            ('253456789', '2'),
+            ('353456789', '1'),
+            ('453456789', '3'),
+            ('553456789', '1');
 /* Part */
 INSERT INTO `part` (`part_name`, `price`)
     VALUES  ('Engine', '300'),
-            ('Oil', '5');
+            ('Oil', '10'),
+            ('Tire', '100'),
+            ('Brake', '2000');
 /* Services Offered */
 INSERT INTO `servicesoffered` (`svc_type`, `vehicle_type`, `skill_id`, `price`)
     VALUES  ('Oil Change', 'Car', '1', '50'),
@@ -79,16 +180,118 @@ INSERT INTO `servicesoffered` (`svc_type`, `vehicle_type`, `skill_id`, `price`)
             ('State vehicle inspection', 'Truck', '7', '20');
 /* Part Used In Service */
 INSERT INTO `partusedinservice` (`part_id`, `service_id`)
-    VALUES  ('2', '1');
+    VALUES  ('2', '5'),
+            ('1', '1'),
+            ('3', '4'),
+            ('4', '3'),
+            ('2', '12'),
+            ('1', '8'),
+            ('3', '11'),
+            ('4', '10'),
+            ('2', '19'),
+            ('1', '15'),
+            ('3', '18'),
+            ('4', '17');
 /* Inventory */
 INSERT INTO `inventory` (`quantity`, `part_id`, `loc_id`)
-    VALUES  ('2', '1', '1');
+    VALUES  ('2', '1', '1'),
+            ('20', '2', '1'),
+            ('10', '3', '1'),
+            ('5', '4', '1'),
+            ('1', '1', '2'),
+            ('22', '2', '2'),
+            ('8', '3', '2'),
+            ('6', '4', '2'),
+            ('1', '1', '3'),
+            ('22', '2', '3'),
+            ('13', '3', '3'),
+            ('2', '4', '3'),
+            ('5', '1', '4'),
+            ('21', '2', '4'),
+            ('11', '3', '4'),
+            ('7', '4', '4'),
+            ('4', '1', '5'),
+            ('16', '2', '5'),
+            ('13', '3', '5'),
+            ('2', '4', '5');
 /* Appointment */
 INSERT INTO `appointment` (`appt_date`, `loc_id`, `cust_id`, `vin`)
-    VALUES  ('2023-04-27', '1', '1', '111111');
+    VALUES  ('2023-04-27', '3', '1', '111111'),
+            ('2023-04-15', '5', '2', '211111'),
+            ('2023-04-23', '4', '3', '311111'),
+            ('2023-04-13', '2', '4', '411111'),
+            ('2023-04-17', '1', '5', '511111'),
+            ('2023-04-20', '3', '6', '611111'),
+            ('2023-04-21', '3', '7', '711111'),
+            ('2023-04-23', '4', '8', '811111'),
+            ('2023-04-25', '4', '9', '911111'),
+            ('2023-04-27', '5', '10', '101111'),
+            ('2023-04-27', '5', '11', '110111'),
+            ('2023-04-27', '2', '12', '120111'),
+            ('2023-04-27', '5', '13', '130111'),
+            ('2023-04-26', '2', '14', '140111'),
+            ('2023-04-27', '3', '15', '150111'),
+            ('2023-04-27', '1', '16', '160111'),
+            ('2023-04-27', '3', '17', '170111'),
+            ('2023-04-27', '1', '18', '180111'),
+            ('2023-04-27', '1', '18', '182111'),
+            ('2023-04-27', '3', '1', '111111'),
+            ('2023-04-28', '3', '1', '111111'),
+            ('2023-04-27', '3', '1', '121111'),
+            ('2023-04-27', '5', '2', '211111'),
+            ('2023-04-27', '4', '3', '311111'),
+            ('2023-04-27', '3', '17', '172111');
 /* Invoice */
 INSERT INTO `invoice` (`amount`, `date_paid`)
-    VALUES  ('200', '2023-04-27');
+    VALUES  ('200', '2023-04-27'),
+            ('200', '2023-04-15'),
+            ('200', '2023-04-23'),
+            ('200', '2023-04-13'),
+            ('200', '2023-04-17'),
+            ('200', '2023-04-20'),
+            ('200', '2023-04-21'),
+            ('200', '2023-04-23'),
+            ('200', '2023-04-25'),
+            ('200', NULL),
+            ('200', NULL),
+            ('200', NULL),
+            ('200', NULL),
+            ('200', '2023-04-26'),
+            ('200', NULL),
+            ('200', NULL),
+            ('200', NULL),
+            ('200', NULL),
+            ('200', NULL),
+            ('200', NULL),
+            ('200', NULL),
+            ('200', NULL),
+            ('200', NULL),
+            ('200', NULL),
+            ('200', NULL);
 /* Invoice Details */
 INSERT INTO `invoicedetails` (`appt_id`, `service_id`, `invoice_id`, `price`, `status`)
-    VALUES  ('1', '1', '1', '200', 'Paid');
+    VALUES  ('1', '1', '1', '200', 'Paid'),
+            ('2', '9', '2', '200', 'Paid'),
+            ('3', '4', '3', '200', 'Paid'),
+            ('4', '5', '4', '200', 'Paid'),
+            ('5', '20', '5', '200', 'Paid'),
+            ('6', '5', '6', '200', 'Paid'),
+            ('7', '7', '7', '200', 'Paid'),
+            ('8', '13', '8', '200', 'Paid'),
+            ('9', '6', '9', '200', 'Paid'),
+            ('10', '7', '10', '200', 'Waiting'),
+            ('11', '12', '11', '200', 'Waiting'),
+            ('12', '14', '12', '200', 'Waiting'),
+            ('13', '12', '13', '200', 'Waiting'),
+            ('14', '17', '14', '200', 'Paid'),
+            ('15', '16', '15', '200', 'In Progress'),
+            ('16', '6', '16', '200', 'Waiting'),
+            ('17', '18', '17', '200', 'In Progress'),
+            ('18', '5', '18', '200', 'In Progress'),
+            ('19', '6', '19', '200', 'In Progress'),
+            ('20', '7', '20', '200', 'In Progress'),
+            ('21', '4', '21', '200', 'Waiting'),
+            ('22', '7', '22', '200', 'Completed'),
+            ('23', '8', '23', '200', 'In Progress'),
+            ('24', '6', '24', '200', 'In Progress'),
+            ('25', '7', '25', '200', 'In Progress');

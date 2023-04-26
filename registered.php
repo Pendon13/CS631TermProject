@@ -32,13 +32,13 @@ if ($conn->query($query) === TRUE) {
     $lastid = $conn->insert_id;
     echo "Successfully created an account<br>";
     echo "Your customer id is: " . $lastid;
-    echo "<br>Please remember your customer id."
+    echo "<br>Please remember your customer id.";
   }
   else {
     echo "Fail: " . $conn->error;
   }
   ?>
   <br>
-  <a href="customerhome.php">Return to customer page</a>
+  <a href="customer.php">Return to customer page</a>
 </body>
 </html>
