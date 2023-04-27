@@ -21,7 +21,7 @@ if($veriresult->num_rows === 1) {
     if($cust_id === $row["id"] && $cust_email === $row["email"]) {
         echo "Welcome " . $row["fname"]. " " . $row["lname"] . "!<br>";
         echo "Your vehicles are: <br>";
-        if ($vehicles->num_rows > 0) {
+        if ($vehicles->num_rows >= 0) {
             // output data of each row
             while($row = $vehicles->fetch_assoc()) {
               echo "VIN: " . $row["vin"]. " - Model: " . $row["model"]. " - Year: " . $row["make_year"]. " - Color: " . $row["color"]. " - Type: " . $row["vehicle_type"]." - Manufacturer: " . $row["manufacturer"]."<br>";
